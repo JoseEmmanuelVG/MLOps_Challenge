@@ -42,12 +42,13 @@ Keep in mind that as you continue to use copilot, you may not want some of the s
    ```
    git add member.js
    ```
-
+   git add SDK_Python-Azure_ML.ipynb
 2. Next from the VS Code terminal stage and commit the changes to the repository:
 
    ```
    git commit -m "Copilot second commit"
    ```
+git commit -m "Added notebook and cloned repository to Explore development tools for interaction in the workspace"
 
 3. Finally from the VS Code terminal push to code to the repository:
 
