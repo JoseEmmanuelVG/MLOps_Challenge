@@ -36,10 +36,19 @@ jobs:
     - name: List installed pip packages
       run: |
         pip list
+        
+    - name: Reinstall flake8
+      run: |
+        pip uninstall -y flake8
+        pip install flake8
 
+    - name: Adjust PATH
+      run: |
+        echo "/path/to/flake8/directory" >> $GITHUB_PATH
+    
     - name: Run Flake8 Lint
       run: |
-        python -m flake8
+        flake8
     
     - name: Run Pytest
       run: |
