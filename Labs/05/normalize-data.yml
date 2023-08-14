@@ -14,7 +14,7 @@ parser.add_argument('--output_data', type=str, help='Path of output data')
 args = parser.parse_args()
 
 # load the data (passed as an input dataset)
-print("files in input_data path: ")
+print("files in input_data path:")
 arr = os.listdir(args.input_data)
 print(arr)
 
@@ -28,7 +28,7 @@ all_files = glob.glob(data_path + "/*.csv")
 df = pd.concat((pd.read_csv(f) for f in all_files), sort=False)
 
 # log row count input data
-row_count = (len(df))
+row_count = len(df)
 mlflow.log_metric('row count input data', row_count)
 
 # normalize the numeric columns
@@ -40,9 +40,8 @@ num_cols = [
 df[num_cols] = scaler.fit_transform(df[num_cols])
 
 # log processed rows
-row_count_processed = (len(df))
+row_count_processed = len(df)
 mlflow.log_metric('row count output data', row_count_processed)
 
 # set the processed data as output
-output_df = df.to_csv((Path(args.output_data) / "output_data.csv"))
-
+output_df = df.to_csv(Path(args.output_data) / "output_data.csv")
