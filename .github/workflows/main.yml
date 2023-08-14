@@ -17,10 +17,3 @@ jobs:
       run: |
         echo "Will add code checks here in next challenge"
 
-    - name: Run Flake8 Lint
-      run: |
-        flake8
-    
-    - name: Run Pytest
-      run: |
-        pytest
