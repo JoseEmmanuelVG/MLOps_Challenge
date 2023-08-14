@@ -15,7 +15,7 @@ args = parser.parse_args()
 data_path = args.input_data
 all_files = glob.glob(data_path + "/*.csv")
 df = pd.concat((pd.read_csv(f) for f in all_files), sort=False)
-    
+
 # log row count input data
 row_count = (len(df))
 mlflow.log_metric('row count input data', row_count)
